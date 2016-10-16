@@ -1,0 +1,68 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.cut{
+	width: 560px;
+	height: 300px;
+	background: pink;
+	margin: 100px auto;
+	position: relative;
+	border: 1px solid black;
+}
+.cut li{
+	list-style: none;
+	width: 112px;
+	height: 100%;
+	background: purple;
+	position: absolute;
+	top: 0;
+	transition: all 1s ease-in;
+	transform-style: preserve-3d;/*透视关系*/
+}
+.cut li div{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+/*构造立方体的四个面（左右侧面不构造）,每个div放一张背景图*/
+.cut li div:nth-child(1){
+	background: url(../img/1.png);
+	transform: rotateX(0deg) translateZ(150px);
+}
+.cut li div:nth-child(2){
+	background: url(../img/2.png);
+	transform: rotateX(-90deg) translateZ(150px);
+}
+.cut li div:nth-child(3){
+	background: url(../img/3.png);
+	transform: rotateX(-180deg) translateZ(150px);
+}
+.cut li div:nth-child(4){
+	background: url(../img/4.png);
+	transform: rotateX(-270deg) translateZ(150px);
+}
+/*按钮*/
+.pre,.next{
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	color: #fff;
+	font-size: 24px;
+	font-weight: bold;
+	background:rgba(0,0,0,0.5);
+	position: absolute;
+	top: 50%;
+	margin-top: -25px;
+	text-decoration: none;
+	text-align: center;
+}
+.pre{
+	left: 0;
+
+}
+.next{
+	right: 0;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>切割式轮播图</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<!-- 思路：cut里面由5个li，每一个li是一个立方体,立方体的4个面是4张背景图,立方体的左右面是看不到的 -->
+	<!-- 注意每一个li都占用一张背景图，而不是五个li共用一张图 -->
+	<div class="cut">
+		<ul>
+			<li>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</li>
+				
+			<li>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</li>
+
+			<li>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</li>
+			
+			<li>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</li>
+
+			<li>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</li>
+		</ul>
+		<a href="javascript:void(0);" class="pre">&lt;</a>
+		<a href="javascript:void(0);" class="next">&gt;</a>
+	</div>
+
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('li').each(function (index,ele) {
+				//每一个li的left值
+				$(this).css({'left':560/5*index,'transition-delay':0.2*index+'s'});
+				//每一个li对应的背景图的位置
+				$(this).children('div').css('backgroundPosition',-560/5*index+'px 0');
+			})
+			
+			//旋转
+			var num = 0;
+			
+			//下一张
+			$('.next').click(function () {
+				num ++;
+				$('li').css('transform','rotateX('+num*90+'deg)');
+			})
+			
+			//上一张
+			$('.pre').click(function () {
+				num --;
+				$('li').css('transform','rotateX('+num*90+'deg)');
+			})
+		})
+	</script>
+</body>
+</html>
